@@ -4,6 +4,7 @@ struct node{
     int data;
     struct node* link;
 };
+
 void add_middle(int pos,struct node* head,int data)
 {
     struct node* temp=malloc(sizeof(struct node));
