@@ -4,17 +4,14 @@ struct node{
     int data;
     struct node* link;
 };
-void add_at_last(struct node* head,int data)
+struct node* add_at_last(struct node* ptr,int data)
 {
-    struct node* ptr=head;
     struct node* temp=malloc(sizeof(struct node));
     temp->data=data;
     temp->link=NULL;
-    while(ptr->link!=NULL)
-    {
-        ptr=ptr->link;
-    }
+    
     ptr->link=temp;
+    return ptr->link;
 }
 int main()
 {
@@ -22,18 +19,13 @@ int main()
     head->data=12;
     head->link=NULL;
     
-    struct node* current=malloc(sizeof(struct node));
-    current->data=23;
-    current->link=NULL;
-    
-    head->link=current;
-    
-    add_at_last(head,90);
     struct node* ptr=head;
+    ptr=add_at_last(ptr,13);
+    ptr=add_at_last(ptr,14);
+    ptr=head;
     while(ptr!=NULL)
     {
         printf("%d ",ptr->data);
         ptr=ptr->link;
     }
-    return 0;
 }
